@@ -1,3 +1,15 @@
+Endpoints assignment:
+
+GET /api/notes               → Yared
+GET /api/notes/{noteId}      → Girma
+POST /api/notes              → Teka
+PUT /api/notes/{noteId}      → Abay
+DELETE /api/notes/{noteId}   → Tojja
+Auth / Login                 → Esrael
+
+
+
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
