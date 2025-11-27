@@ -1,0 +1,56 @@
+#%RAML 1.0
+title: Final-project
+version: 1.0.0
+protocols: [HTTP, HTTPS]
+mediaType: [application/json]
+description: This API manages note records in a database by providing secure endpoints to create, retrieve, update, list, and delete notes in a consistent and reliable manner.
+documentation:
+  - !include documentation/documentation.raml
+uses:
+ 
+  
+annotationTypes:
+  author:
+    type: string
+    description: The author of the API endpoint.
+  deprecated:
+    type: boolean
+    description: Indicates whether the API endpoint is deprecated.
+
+/notes:
+  get:
+    description: |
+      List all notes stored in the database.
+      Each note returned must have a populated `updatedAt` field.
+    responses:
+      200:
+        description: Successful retrieval of notes
+        body:
+          application/json:
+            example:
+              [
+                {
+                  "id": "101",
+                  "title": "Meeting Notes",
+                  "content": "Discuss project timeline and deliverables.",
+                  "createdAt": "2025-01-01T09:30:00Z",
+                  "updatedAt": "2025-01-01T10:45:00Z"
+                },
+                {
+                  "id": "102",
+                  "title": "Shopping List",
+                  "content": "Milk, Bread, Eggs, Fruits",
+                  "createdAt": "2025-01-02T08:15:00Z",
+                  "updatedAt": "2025-01-02T09:00:00Z"
+                }
+              ]
+      500:
+        description: Internal server error
+        body:
+          application/json:
+            example:
+              {
+                "message": "An unexpected error occurred"
+              }
+    
+
